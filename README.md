@@ -22,7 +22,6 @@ This video shows how clicking on each image item displays a Toast message with t
 Clicked {row user name}
 ```
 
-_Add your screen recording here (e.g., as a YouTube or GitHub link)._
 
 ## 📦 Features
 
