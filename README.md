@@ -35,7 +35,7 @@ _Add your screen recording here (e.g., as a YouTube or GitHub link)._
 
 Clone the repository:
 ```bash
-git clone https://github.com/yourusername/your-repo-name.git
+git clone https://github.com/walid269/Lazy-Colum
 ```
 
 Open the project in **Android Studio** and run it on an emulator or physical device.
@@ -45,25 +45,58 @@ Open the project in **Android Studio** and run it on an emulator or physical dev
 ### Sample Composable:
 ```kotlin
 @Composable
-fun UserCard(userName: String, imageRes: Int) {
-    Column(
+fun AvatarCard(firstname: String, lastname: String, img: Int) {
+    var context = LocalContext.current
+    Card(
         modifier = Modifier
-            .clickable {
-                Toast.makeText(context, "Clicked $userName", Toast.LENGTH_SHORT).show()
-            }
-            .padding(8.dp),
-        horizontalAlignment = Alignment.CenterHorizontally
+            .fillMaxWidth()
+            .height(100.dp),
+        shape = RoundedCornerShape(16.dp),
+        elevation = CardDefaults.cardElevation(defaultElevation = 6.dp)
     ) {
-        Image(painter = painterResource(id = imageRes), contentDescription = userName)
-        Text(text = userName)
+        Row(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(16.dp)
+                .fillMaxWidth()
+                .clickable {
+                    Toast.makeText(context,"Clicked $firstname", Toast.LENGTH_SHORT).show()
+                },
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Image(
+                painter = painterResource(id = img),
+                contentDescription = "Avatar",
+                modifier = Modifier
+                    .size(60.dp)
+                    .padding(end = 16.dp)
+            )
+
+            Column {
+                Text(
+                    text = firstname,
+                    style = MaterialTheme.typography.bodyLarge.copy(
+                        fontSize = 20.sp,
+                        fontWeight = FontWeight.Bold
+                    )
+                )
+                Text(
+                    text = lastname,
+                    style = MaterialTheme.typography.bodyMedium.copy(
+                        fontSize = 16.sp
+                    )
+                )
+            }
+        }
     }
 }
+
 ```
 
 ## 🧑‍💻 Author
 
-**Your Name**  
-[GitHub Profile](https://github.com/yourusername)
+**Tanvir ahmed (chy)**  
+[GitHub Profile](https://github.com/walid269)
 
 ## 📜 License
 
